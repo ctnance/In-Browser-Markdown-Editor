@@ -1,6 +1,18 @@
-/* :root {
-  Custom variables to go here
-} */
+:root {
+  --color-weight-100: hsl(0, 0%, 100%);
+  --color-weight-200: hsl(0, 0%, 96%);
+  --color-weight-300: hsl(0, 0%, 89%);
+  --color-weight-400: hsl(222, 9%, 78%);
+  --color-weight-500: hsl(222, 9%, 78%);
+  --color-weight-600: hsl(216, 8%, 38%);
+  --color-weight-700: hsl(216, 9%, 23%);
+  --color-weight-800: hsl(220, 7%, 18%);
+  --color-weight-900: hsl(216, 8%, 12%);
+  --color-weight-1000: hsl(225, 9%, 9%);
+
+  --orange: hsl(13, 75%, 58%);
+  --orange-hover: hsl(21, 86%, 67%);
+}
 
 html {
   box-sizing: border-box;
@@ -11,5 +23,32 @@ html {
 }
 
 body {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
   margin: 0;
+}
+
+h1 {
+  font-size: 2rem; /* 32px */
+}
+
+h2 {
+  font-size: 1.75rem; /* 28px */
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 1.5rem; /* 24px */
+}
+
+h4 {
+  font-size: 1.25rem; /* 20px */
+}
+
+h5 {
+  font-size: 1rem; /* 16px */
+}
+
+h6,
+p {
+  font-size: 0.875rem; /* 14px */
 }
