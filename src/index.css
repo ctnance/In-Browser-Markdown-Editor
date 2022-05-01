@@ -69,15 +69,27 @@ img {
 }
 
 .menu-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--color-weight-700);
   width: 56px;
   height: 56px;
-  padding: 21px 17px;
 }
 
-.menu-btn--icon {
+.menu-btn--icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-icon {
   width: 23px;
   height: 14px;
+}
+
+.close-icon {
+  width: 18px;
 }
 
 .delete-file-btn {
