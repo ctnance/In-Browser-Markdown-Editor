@@ -48,7 +48,88 @@ h5 {
   font-size: 1rem; /* 16px */
 }
 
+h6 {
+  color: var(--orange);
+}
+
 h6,
 p {
   font-size: 0.875rem; /* 14px */
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Button Styles */
+
+.btn {
+  cursor: pointer;
+  border: none;
+}
+
+.menu-btn {
+  background-color: var(--color-weight-700);
+  width: 56px;
+  height: 56px;
+  padding: 21px 17px;
+}
+
+.menu-btn--icon {
+  width: 23px;
+  height: 14px;
+}
+
+.delete-file-btn {
+  background-color: transparent;
+  margin-right: 18px;
+}
+
+.save-file-btn {
+  background-color: var(--orange);
+  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  margin: 8px;
+  padding: 12px;
+}
+
+.save-file-btn:hover {
+  background-color: var(--orange-hover);
+}
+
+.save-file-btn--icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-weight-800);
+}
+
+.file-input {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  padding: 0 24px;
+}
+
+.file-input--icon {
+  margin-right: 1em;
+}
+
+.file-input--input {
+  background-color: transparent;
+  color: var(--color-weight-100);
+  border: none;
+  font-size: 0.9375rem;
+  caret-color: var(--orange);
+  width: 100%;
+}
+
+.file-input--input:hover,
+.file-input--input:focus {
+  border-bottom: 1px solid var(--color-weight-100);
 }
