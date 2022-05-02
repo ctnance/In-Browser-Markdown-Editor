@@ -4,7 +4,7 @@ import IconMenu from "../../assets/icon-menu.svg";
 import IconClose from "../../assets/icon-close.svg";
 
 function MenuButton() {
-  const [isActive, toggle] = useToggler(true);
+  const [isActive, toggle] = useToggler(false);
 
   return (
     <button className="btn menu-btn" onClick={toggle}><div className="menu-btn--icon-container">

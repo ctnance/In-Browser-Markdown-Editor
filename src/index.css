@@ -14,17 +14,24 @@
   --orange-hover: hsl(21, 86%, 67%);
 }
 
+/* HTML STYLES */
+
 html {
   box-sizing: border-box;
 }
 
-* {
-  box-sizing: inherit;
+html,
+body {
+  height: 100%;
 }
 
 body {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   margin: 0;
+}
+
+* {
+  box-sizing: inherit;
 }
 
 h1 {
@@ -61,7 +68,7 @@ img {
   max-width: 100%;
 }
 
-/* Button Styles */
+/* BUTTON STYLES */
 
 .btn {
   cursor: pointer;
@@ -115,6 +122,14 @@ img {
   height: 1rem;
 }
 
+/* CUSTOM STYLES */
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -144,4 +159,31 @@ img {
 .file-input--input:hover,
 .file-input--input:focus {
   border-bottom: 1px solid var(--color-weight-100);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.markdown-editor-container {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+/* .markdown-editor-container::-webkit-scrollbar {
+  display: none;
+} */
+
+.markdown-editor {
+  color: var(--color-weight-700);
+  font-family: "Roboto Mono", "Courier New", Courier, monospace;
+  font-size: 0.875rem;
+  border: none;
+  resize: none;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
 }
