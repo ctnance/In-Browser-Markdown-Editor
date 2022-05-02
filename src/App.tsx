@@ -1,4 +1,4 @@
-import { Header, Main } from "./components/index";
+import { Header, Main } from "./components";
 
 function App() {
   return (

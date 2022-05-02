@@ -3,7 +3,7 @@
   --color-weight-200: hsl(0, 0%, 96%);
   --color-weight-300: hsl(0, 0%, 89%);
   --color-weight-400: hsl(222, 9%, 78%);
-  --color-weight-500: hsl(222, 9%, 78%);
+  --color-weight-500: hsl(213, 4%, 51%);
   --color-weight-600: hsl(216, 8%, 38%);
   --color-weight-700: hsl(216, 9%, 23%);
   --color-weight-800: hsl(220, 7%, 18%);
@@ -122,6 +122,10 @@ img {
   height: 1rem;
 }
 
+.preview-btn {
+  background-color: transparent;
+}
+
 /* CUSTOM STYLES */
 
 #root {
@@ -167,14 +171,23 @@ img {
   height: 100%;
 }
 
+.preview-bar {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-weight-200);
+  padding: 0 16px;
+}
+
+.preview-bar--text {
+  color: var(--color-weight-500);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 .markdown-editor-container {
   flex-grow: 1;
   overflow: hidden;
 }
-
-/* .markdown-editor-container::-webkit-scrollbar {
-  display: none;
-} */
 
 .markdown-editor {
   color: var(--color-weight-700);

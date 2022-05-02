@@ -1,11 +1,10 @@
+import PreviewBar from "./PreviewBar";
 import MarkdownEditor from "./MarkdownEditor";
 
 function Main() {
   return (
     <main className="main">
-      <div>
-        <p>Markdown</p>
-      </div>
+      <PreviewBar />
       <MarkdownEditor />
     </main>
   );
