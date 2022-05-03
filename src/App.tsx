@@ -1,6 +1,7 @@
+import { FC } from "react";
 import { Header, Main } from "./components";
 
-function App() {
+const App: FC = () => {
   return (
     <>
       <Header />

@@ -1,3 +1,4 @@
+import { FC } from "react";
 import IconShowPreview from "../../assets/icon-show-preview.svg";
 import IconHidePreview from "../../assets/icon-hide-preview.svg";
 
@@ -6,7 +7,7 @@ interface Props {
   togglePreview: () => void
 }
 
-function PreviewButton({ previewActive, togglePreview }: Props) {
+const PreviewButton: FC<Props> = ({ previewActive, togglePreview }) => {
 
   return (
     <button className="btn preview-btn" onClick={togglePreview}><div className="preview-btn--icon-container">

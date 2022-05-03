@@ -1,7 +1,8 @@
+import { FC } from "react";
 import PreviewBar from "./PreviewBar";
 import MarkdownEditor from "./MarkdownEditor";
 
-function Main() {
+const Main: FC = () => {
   return (
     <main className="main">
       <PreviewBar />

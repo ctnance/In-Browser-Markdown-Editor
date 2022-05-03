@@ -1,6 +1,7 @@
+import { FC } from "react";
 import IconDocument from "../assets/icon-document.svg";
 
-function FileInput() {
+const FileInput: FC = () => {
   return (
     <div className="file-input">
       <img className="file-input--icon" src={IconDocument} alt="document icon" />

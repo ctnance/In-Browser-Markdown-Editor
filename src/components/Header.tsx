@@ -1,7 +1,8 @@
+import { FC } from "react";
 import { MenuButton, DeleteFileButton, SaveFileButton } from "./buttons/index";
 import FileInput from "./FileInput";
 
-function Header() {
+const Header: FC = () => {
   return (
     <header className="header">
       <MenuButton />
