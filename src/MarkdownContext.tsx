@@ -7,12 +7,12 @@ interface MarkdownObject {
   content: string,
 }
 
-interface defaultValues {
+interface DefaultValues {
   markdownNotes: MarkdownObject[],
-  activeNoteId: Number
+  activeNoteId: Number,
 }
 
-const MarkdownContext = createContext({} as defaultValues);
+const MarkdownContext = createContext({} as DefaultValues);
 
 interface Props {
   children?: JSX.Element
