@@ -4,6 +4,7 @@ import { MarkdownContext } from "../MarkdownContext";
 
 const MarkdownEditor: FC = () => {
   const [text, setText] = useState<string>("");
+  // TODO: Use the "active" note rather than the first note at index 0
   const { markdownNotes } = useContext(MarkdownContext);
   const { isDarkTheme } = useContext(ThemeContext);
 
