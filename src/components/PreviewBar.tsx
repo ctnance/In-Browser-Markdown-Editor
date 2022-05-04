@@ -3,7 +3,7 @@ import { useToggler } from "../hooks";
 import PreviewButton from "./buttons/PreviewButton";
 
 const PreviewBar: FC = () => {
-  const [isMarkdownActive, toggle] = useToggler(false);
+  const [isMarkdownActive, toggle] = useToggler(true);
 
   return (
     <div className="preview-bar">

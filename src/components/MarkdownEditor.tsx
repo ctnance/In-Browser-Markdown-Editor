@@ -1,8 +1,13 @@
-import { FC } from "react";
-import { useState } from "react";
+import { FC, useState, useEffect, useContext } from "react";
+import { MarkdownContext } from "../MarkdownContext";
 
 const MarkdownEditor: FC = () => {
-  let [text, setText] = useState("");
+  const [text, setText] = useState<string>("");
+  const { markdownNotes } = useContext(MarkdownContext);
+
+  useEffect(() => {
+    setText(markdownNotes[0].content);
+  }, [])
 
   function handleChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
     setText(e.target.value);
