@@ -15,11 +15,12 @@ const ThemeContextProvider: FC<Props> = ({ children }) => {
   const [isDarkTheme, setIsDarkTheme] = useState<boolean>(false);
 
   function toggleTheme() {
+    console.log("TOGGLE THEME")
     setIsDarkTheme(prev => !prev);
   }
 
   return (
-    <ThemeContext.Provider value={{ isDarkTheme, toggleTheme }}>
+    <ThemeContext.Provider value={{ isDarkTheme, toggleTheme } as DefaultValues}>
       {children}
     </ThemeContext.Provider>
   )

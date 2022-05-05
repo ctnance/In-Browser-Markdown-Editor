@@ -1,14 +1,11 @@
-import { FC, useContext } from "react";
-import { ThemeContextProvider } from "./ThemeContext";
+import { FC } from "react";
 import { Header, Main } from "./components";
 
 const App: FC = () => {
   return (
     <>
       <Header />
-      <ThemeContextProvider>
-        <Main />
-      </ThemeContextProvider>
+      <Main />
     </>
   );
 }
