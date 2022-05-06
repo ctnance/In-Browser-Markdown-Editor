@@ -13,7 +13,8 @@ interface DefaultValues {
   markdownNotes: MarkdownObject[],
   activeNoteId: number,
   updateActiveNoteId: (id: number) => void,
-  createNewNote: (id: number) => void
+  createNewNote: (id: number) => void,
+  updateNoteName: (name: string) => void
 }
 
 const MarkdownContext = createContext({} as DefaultValues);
@@ -39,15 +40,26 @@ const MarkdownContextProvider: FC<Props> = ({ children }) => {
           "id": id,
           "createdAt": getCurrentDate(),
           "name": "untitled-document.md",
-          "content": "# Test"
+          "content": ""
         }
       ]
     ));
     setActiveNoteId(id);
   }
 
+  function updateNoteName(name: string) {
+    setMarkdownNotes(prev => (
+      prev.map(note => {
+        if (note.id === activeNoteId) {
+          note.name = name;
+        }
+        return note;
+      })
+    ))
+  }
+
   return (
-    <MarkdownContext.Provider value={{ markdownNotes, activeNoteId, updateActiveNoteId, createNewNote }}>
+    <MarkdownContext.Provider value={{ markdownNotes, activeNoteId, updateActiveNoteId, createNewNote, updateNoteName }}>
       {children}
     </MarkdownContext.Provider>
   )
