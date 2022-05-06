@@ -5,7 +5,7 @@ import { MarkdownContext } from "../MarkdownContext";
 const MarkdownEditor: FC = () => {
   const [text, setText] = useState<string>("");
   // TODO: Use the "active" note rather than the first note at index 0
-  const { markdownNotes, activeNoteId } = useContext(MarkdownContext);
+  const { markdownNotes, activeNoteId, updateNoteContent } = useContext(MarkdownContext);
   const { isDarkTheme } = useContext(ThemeContext);
 
   useEffect(() => {
@@ -13,7 +13,9 @@ const MarkdownEditor: FC = () => {
   }, [activeNoteId]);
 
   function handleChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
-    setText(e.target.value);
+    const { value } = e.target;
+    setText(value);
+    updateNoteContent(value);
   }
 
   return (

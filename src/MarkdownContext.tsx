@@ -14,7 +14,8 @@ interface DefaultValues {
   activeNoteId: number,
   updateActiveNoteId: (id: number) => void,
   createNewNote: (id: number) => void,
-  updateNoteName: (name: string) => void
+  updateNoteName: (name: string) => void,
+  updateNoteContent: (content: string) => void
 }
 
 const MarkdownContext = createContext({} as DefaultValues);
@@ -55,11 +56,22 @@ const MarkdownContextProvider: FC<Props> = ({ children }) => {
         }
         return note;
       })
-    ))
+    ));
+  }
+
+  function updateNoteContent(content: string) {
+    setMarkdownNotes(prev => (
+      prev.map(note => {
+        if (note.id === activeNoteId) {
+          note.content = content;
+        }
+        return note;
+      })
+    ));
   }
 
   return (
-    <MarkdownContext.Provider value={{ markdownNotes, activeNoteId, updateActiveNoteId, createNewNote, updateNoteName }}>
+    <MarkdownContext.Provider value={{ markdownNotes, activeNoteId, updateActiveNoteId, createNewNote, updateNoteName, updateNoteContent }}>
       {children}
     </MarkdownContext.Provider>
   )
