@@ -1,8 +1,20 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
+import { MarkdownContext } from "../../MarkdownContext";
 
-const NewDocumentButton: FC = () => {
+interface Props {
+  toggleMenu: () => void,
+}
+
+const NewDocumentButton: FC<Props> = ({ toggleMenu }) => {
+  const { markdownNotes, createNewNote } = useContext(MarkdownContext);
+
+  function handleClick() {
+    createNewNote(markdownNotes.length);
+    toggleMenu();
+  }
+
   return (
-    <button className="btn new-document-btn">+ New Document</button>
+    <button className="btn new-document-btn" onClick={handleClick}>+ New Document</button>
   )
 }
 

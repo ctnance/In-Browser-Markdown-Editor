@@ -22,7 +22,7 @@ const Menu: FC<Props> = ({ toggleSelf }) => {
         <img className="menu--title-icon" src={Logo} alt="menu title icon" />
       </div>
       <p className="menu--document-text">My Documents</p>
-      <NewDocumentButton />
+      <NewDocumentButton toggleMenu={toggleSelf} />
       <div className="menu--markdown-notes">
         {noteEntries}
       </div>

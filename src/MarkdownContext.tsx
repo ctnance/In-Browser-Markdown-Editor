@@ -1,5 +1,6 @@
 import { FC, createContext, useState } from "react";
 import markdownData from "./data/data.json";
+import { getCurrentDate } from "./helpers/utils";
 
 interface MarkdownObject {
   id: number,
@@ -12,6 +13,7 @@ interface DefaultValues {
   markdownNotes: MarkdownObject[],
   activeNoteId: number,
   updateActiveNoteId: (id: number) => void,
+  createNewNote: (id: number) => void
 }
 
 const MarkdownContext = createContext({} as DefaultValues);
@@ -29,8 +31,23 @@ const MarkdownContextProvider: FC<Props> = ({ children }) => {
     setActiveNoteId(id);
   }
 
+  function createNewNote(id: number) {
+    setMarkdownNotes(prev => (
+      [
+        ...prev,
+        {
+          "id": id,
+          "createdAt": getCurrentDate(),
+          "name": "untitled-document.md",
+          "content": "# Test"
+        }
+      ]
+    ));
+    setActiveNoteId(id);
+  }
+
   return (
-    <MarkdownContext.Provider value={{ markdownNotes, activeNoteId, updateActiveNoteId }}>
+    <MarkdownContext.Provider value={{ markdownNotes, activeNoteId, updateActiveNoteId, createNewNote }}>
       {children}
     </MarkdownContext.Provider>
   )
