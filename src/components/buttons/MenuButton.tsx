@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useToggler } from "../../hooks/index";
-import Menu from "../Menu";
+import { Menu } from "../";
 
 import IconMenu from "../../assets/icon-menu.svg";
 import IconClose from "../../assets/icon-close.svg";

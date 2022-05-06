@@ -1,6 +1,5 @@
 import { FC } from "react";
-import PreviewBar from "./PreviewBar";
-import MarkdownEditor from "./MarkdownEditor";
+import { PreviewBar, MarkdownEditor } from "./";
 
 const Main: FC = () => {
   return (

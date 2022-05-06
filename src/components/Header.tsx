@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { MenuButton, DeleteFileButton, SaveFileButton } from "./buttons/index";
-import FileInput from "./FileInput";
+import { FileInput } from "./";
 
 const Header: FC = () => {
   return (

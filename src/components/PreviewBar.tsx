@@ -1,7 +1,7 @@
 import { FC, useContext } from "react";
 import { useToggler } from "../hooks";
 import { ThemeContext } from "../ThemeContext";
-import PreviewButton from "./buttons/PreviewButton";
+import { PreviewButton } from "./buttons";
 
 const PreviewBar: FC = () => {
   const [isMarkdownActive, toggle] = useToggler(true);

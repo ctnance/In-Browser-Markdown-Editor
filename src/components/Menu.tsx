@@ -1,6 +1,5 @@
 import { FC, useContext } from "react";
-import NewDocumentButton from "./buttons/NewDocumentButton";
-import ThemeButton from "./buttons/ThemeButton";
+import { NewDocumentButton, ThemeButton } from "./buttons";
 
 import Logo from "../assets/logo.svg";
 
