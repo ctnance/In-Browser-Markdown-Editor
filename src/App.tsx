@@ -3,7 +3,7 @@ import { Header, Main, Menu } from "./components";
 import { useToggler } from "./hooks/index";
 
 const App: FC = () => {
-  const [isMenuActive, toggleMenu] = useToggler(true);
+  const [isMenuActive, toggleMenu] = useToggler(false);
   return (
     <>
       {isMenuActive && <Menu toggleSelf={toggleMenu} />}

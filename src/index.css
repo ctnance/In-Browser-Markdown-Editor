@@ -338,6 +338,7 @@ img {
   font-family: "Roboto Mono", "Courier New", Courier, monospace;
   font-size: 0.875rem;
   border: none;
+  border-radius: 0;
   resize: none;
   overflow: auto;
   width: 100%;
