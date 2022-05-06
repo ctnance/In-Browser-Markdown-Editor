@@ -5,11 +5,15 @@ import { MarkdownNote } from "./";
 
 import Logo from "../assets/logo.svg";
 
-const Menu: FC = () => {
+interface Props {
+  toggleSelf: () => void,
+}
+
+const Menu: FC<Props> = ({ toggleSelf }) => {
   const { markdownNotes } = useContext(MarkdownContext);
 
   const noteEntries = markdownNotes.map(note => (
-    <MarkdownNote key={note.id} id={note.id} creationDate={note.createdAt} filename={note.name} />
+    <MarkdownNote key={note.id} id={note.id} creationDate={note.createdAt} filename={note.name} toggleMenu={toggleSelf} />
   ))
 
   return (

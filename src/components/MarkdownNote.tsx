@@ -6,15 +6,21 @@ import IconDocument from "../assets/icon-document.svg";
 interface Props {
   id: number,
   creationDate: string,
-  filename: string
+  filename: string,
+  toggleMenu: () => void,
 }
 
-const MarkdownNote: FC<Props> = ({ id, creationDate, filename }) => {
+const MarkdownNote: FC<Props> = ({ id, creationDate, filename, toggleMenu }) => {
   const { updateActiveNoteId } = useContext(MarkdownContext);
   const date = new Date(creationDate).toLocaleDateString("en-us", { day: "numeric", month: "short", year: "numeric" });
 
+  function activateNote() {
+    toggleMenu();
+    updateActiveNoteId(id);
+  }
+
   return (
-    <div className="markdown-note" onClick={() => updateActiveNoteId(id)}>
+    <div className="markdown-note" onClick={() => activateNote()}>
       <div className="markdown-note--icon-container">
         <img className="markdown-note--icon" src={IconDocument} alt="document icon" />
       </div>

@@ -6,7 +6,7 @@ const App: FC = () => {
   const [isMenuActive, toggleMenu] = useToggler(true);
   return (
     <>
-      {isMenuActive && <Menu />}
+      {isMenuActive && <Menu toggleSelf={toggleMenu} />}
       <div className={`page-content ${isMenuActive ? "menu-active" : ""}`}>
         <Header isMenuActive={isMenuActive} toggleMenu={toggleMenu} />
         <Main />
