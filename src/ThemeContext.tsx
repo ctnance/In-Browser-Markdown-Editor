@@ -12,7 +12,9 @@ interface Props {
 }
 
 const ThemeContextProvider: FC<Props> = ({ children }) => {
-  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(false);
+  let userThemeSetting = window.matchMedia("(prefers-color-scheme: dark)");
+  // Set theme based on the prefers-color-scheme value (user preference)
+  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(userThemeSetting.matches);
 
   function toggleTheme() {
     console.log("TOGGLE THEME")

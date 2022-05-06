@@ -5,11 +5,11 @@ import IconDocument from "../assets/icon-document.svg";
 const FileInput: FC = () => {
   // TODO: Use the "active" note rather than the first note at index 0
   const [fileName, setFileName] = useState<string>("untitled.md");
-  const { markdownNotes } = useContext(MarkdownContext);
+  const { markdownNotes, activeNoteId } = useContext(MarkdownContext);
 
   useEffect(() => {
-    setFileName(markdownNotes[0].name);
-  }, []);
+    setFileName(markdownNotes[activeNoteId].name);
+  }, [activeNoteId]);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setFileName(e.target.value);

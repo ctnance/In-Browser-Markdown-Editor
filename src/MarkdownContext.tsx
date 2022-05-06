@@ -10,7 +10,8 @@ interface MarkdownObject {
 
 interface DefaultValues {
   markdownNotes: MarkdownObject[],
-  activeNoteId: Number,
+  activeNoteId: number,
+  updateActiveNoteId: (id: number) => void,
 }
 
 const MarkdownContext = createContext({} as DefaultValues);
@@ -23,8 +24,13 @@ const MarkdownContextProvider: FC<Props> = ({ children }) => {
   const [markdownNotes, setMarkdownNotes] = useState(markdownData);
   const [activeNoteId, setActiveNoteId] = useState(0);
 
+  function updateActiveNoteId(id: number) {
+    console.log("UPDATING ACTIVE NOTE ID TO: " + id)
+    setActiveNoteId(id);
+  }
+
   return (
-    <MarkdownContext.Provider value={{ markdownNotes, activeNoteId }}>
+    <MarkdownContext.Provider value={{ markdownNotes, activeNoteId, updateActiveNoteId }}>
       {children}
     </MarkdownContext.Provider>
   )

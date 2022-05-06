@@ -147,9 +147,20 @@ img {
 /* CUSTOM STYLES */
 
 #root {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.page-content {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+.page-content.menu-active {
+  transform: translateX(250px);
+  overflow-x: hidden;
 }
 
 .header {
@@ -160,19 +171,14 @@ img {
 
 /* TODO: Move Index */
 .menu {
+  position: fixed;
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 0;
-  left: 0;
   background-color: var(--color-weight-900);
   width: 250px;
   height: 100vh;
   padding: 30px 24px;
-}
-
-.menu--title-icon {
-  align-self: flex-start;
+  z-index: 10;
 }
 
 .menu--document-text {
@@ -192,7 +198,13 @@ img {
   display: flex;
   align-items: center;
   width: 100%;
-  margin-bottom: 1.625em;
+  margin-bottom: 1em;
+  padding: 5px 0;
+}
+
+.markdown-note:hover {
+  background-color: var(--color-weight-700);
+  border-radius: 4px;
 }
 
 .markdown-note--icon-container {

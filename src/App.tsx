@@ -1,11 +1,16 @@
 import { FC } from "react";
-import { Header, Main } from "./components";
+import { Header, Main, Menu } from "./components";
+import { useToggler } from "./hooks/index";
 
 const App: FC = () => {
+  const [isMenuActive, toggleMenu] = useToggler(true);
   return (
     <>
-      <Header />
-      <Main />
+      {isMenuActive && <Menu />}
+      <div className={`page-content ${isMenuActive ? "menu-active" : ""}`}>
+        <Header isMenuActive={isMenuActive} toggleMenu={toggleMenu} />
+        <Main />
+      </div>
     </>
   );
 }

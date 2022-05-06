@@ -2,10 +2,15 @@ import { FC } from "react";
 import { MenuButton, DeleteFileButton, SaveFileButton } from "./buttons/index";
 import { FileInput } from "./";
 
-const Header: FC = () => {
+interface Props {
+  isMenuActive: boolean,
+  toggleMenu: () => void,
+}
+
+const Header: FC<Props> = ({ isMenuActive, toggleMenu }) => {
   return (
     <header className="header">
-      <MenuButton />
+      <MenuButton isActive={isMenuActive} toggle={toggleMenu} />
       <FileInput />
       <DeleteFileButton />
       <SaveFileButton />
