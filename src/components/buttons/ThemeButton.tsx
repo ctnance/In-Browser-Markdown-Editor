@@ -14,13 +14,13 @@ const ThemeButton: FC = () => {
   }
 
   return (
-    <div className="theme-button-container">
-      <div className="theme-button--icon-dark">
-        <img src={IconDark} />
+    <div className="theme-btn-container">
+      <div className="theme-btn--icon-dark-container">
+        <img className={`theme-btn--icon-dark ${isDarkTheme ? "selected" : ""}`} src={IconDark} />
       </div>
-      <div className={`theme-button theme-button--${isDarkTheme ? "dark" : "light"}`} onClick={toggleTheme}><div className="theme-button--indicator"></div></div>
-      <div className="theme-button--icon-light">
-        <img src={IconLight} />
+      <div className={`theme-btn theme-btn--${isDarkTheme ? "dark" : "light"}`} onClick={toggleTheme}><div className="theme-btn--indicator"></div></div>
+      <div className="theme-btn--icon-light-container">
+        <img className={`theme-btn--icon-light ${!isDarkTheme ? "selected" : ""}`} src={IconLight} />
       </div>
     </div>
   )

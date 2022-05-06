@@ -159,6 +159,8 @@ img {
 
 /* TODO: Move Index */
 .menu {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: 0;
   left: 0;
@@ -166,6 +168,10 @@ img {
   width: 250px;
   height: 100vh;
   padding: 30px 24px;
+}
+
+.menu--title-icon {
+  align-self: flex-start;
 }
 
 .menu--document-text {
@@ -176,19 +182,25 @@ img {
   margin: 28px 0;
 }
 
-.theme-button-container {
+.theme-btn-container {
   user-select: none;
   display: flex;
   align-items: center;
+  margin-top: auto;
 }
 
-.theme-button--icon-dark,
-.theme-button--icon-light {
+.theme-btn--icon-dark-container,
+.theme-btn--icon-light-container {
   display: flex;
   align-items: center;
 }
 
-.theme-button {
+.theme-btn--icon-dark.selected,
+.theme-btn--icon-light.selected {
+  filter: brightness(0) invert(1);
+}
+
+.theme-btn {
   cursor: pointer;
   display: flex;
   background-color: var(--color-weight-600);
@@ -199,7 +211,7 @@ img {
   padding: 6px;
 }
 
-.theme-button--indicator {
+.theme-btn--indicator {
   background-color: var(--color-weight-100);
   justify-self: flex-end;
   border-radius: 50%;
@@ -207,11 +219,11 @@ img {
   height: 12px;
 }
 
-.theme-button--dark {
+.theme-btn--dark {
   justify-content: flex-start;
 }
 
-.theme-button--light {
+.theme-btn--light {
   justify-content: flex-end;
 }
 
