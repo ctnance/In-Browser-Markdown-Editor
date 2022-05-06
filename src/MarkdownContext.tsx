@@ -2,6 +2,7 @@ import { FC, createContext, useState } from "react";
 import markdownData from "./data/data.json";
 
 interface MarkdownObject {
+  id: number,
   createdAt: string,
   name: string,
   content: string,

@@ -65,6 +65,7 @@ p {
 }
 
 img {
+  user-select: none;
   max-width: 100%;
 }
 
@@ -180,6 +181,38 @@ img {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 28px 0;
+}
+
+.menu--markdown-notes {
+  margin-top: 1.5em;
+}
+
+.markdown-note {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1.625em;
+}
+
+.markdown-note--icon-container {
+  margin-right: 1em;
+}
+
+.markdown-note--creation-date,
+.markdown-note--filename {
+  margin: 0;
+}
+
+.markdown-note--creation-date {
+  color: var(--color-weight-500);
+  font-size: 0.8125rem;
+}
+
+.markdown-note--filename {
+  color: var(--color-weight-100);
+  font-size: 0.9375rem;
+  margin-top: 3px;
 }
 
 .theme-btn-container {
