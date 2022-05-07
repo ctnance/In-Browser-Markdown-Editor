@@ -3,10 +3,11 @@ import { ThemeContext } from "../ThemeContext";
 import { MarkdownContext } from "../MarkdownContext";
 
 interface Props {
+  isMenuActive: boolean,
   toggleMenu: () => void,
 }
 
-const MarkdownEditor: FC<Props> = ({ toggleMenu }) => {
+const MarkdownEditor: FC<Props> = ({ isMenuActive, toggleMenu }) => {
   const [text, setText] = useState<string>("");
   // TODO: Use the "active" note rather than the first note at index 0
   const { markdownNotes, activeNoteId, updateNoteContent } = useContext(MarkdownContext);
@@ -23,7 +24,7 @@ const MarkdownEditor: FC<Props> = ({ toggleMenu }) => {
   }
 
   return (
-    <div className="markdown-editor-container" onClick={toggleMenu}>
+    <div className="markdown-editor-container" onClick={() => { isMenuActive && toggleMenu() }}>
       <textarea className={`markdown-editor ${isDarkTheme ? "dark" : "light"}`} value={text} onChange={handleChange} />
     </div>
   )
