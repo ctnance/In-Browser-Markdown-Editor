@@ -11,7 +11,7 @@ const Header: FC<Props> = ({ isMenuActive, toggleMenu }) => {
   return (
     <header className="header">
       <MenuButton isActive={isMenuActive} toggle={toggleMenu} />
-      <FileInput />
+      <FileInput toggleMenu={toggleMenu} />
       <DeleteFileButton />
       <SaveFileButton />
     </header>

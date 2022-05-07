@@ -1,11 +1,15 @@
 import { FC } from "react";
 import { PreviewBar, MarkdownEditor } from "./";
 
-const Main: FC = () => {
+interface Props {
+  toggleMenu: () => void,
+}
+
+const Main: FC<Props> = ({ toggleMenu }) => {
   return (
     <main className="main">
       <PreviewBar />
-      <MarkdownEditor />
+      <MarkdownEditor toggleMenu={toggleMenu} />
     </main>
   );
 }

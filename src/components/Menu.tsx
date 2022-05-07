@@ -6,10 +6,11 @@ import { MarkdownNote } from "./";
 import Logo from "../assets/logo.svg";
 
 interface Props {
+  isActive: boolean,
   toggleSelf: () => void,
 }
 
-const Menu: FC<Props> = ({ toggleSelf }) => {
+const Menu: FC<Props> = ({ isActive, toggleSelf }) => {
   const { markdownNotes } = useContext(MarkdownContext);
 
   const noteEntries = markdownNotes.map(note => (
@@ -17,7 +18,7 @@ const Menu: FC<Props> = ({ toggleSelf }) => {
   ))
 
   return (
-    <div className="menu">
+    <div className="menu" style={{ display: isActive ? "flex" : "none" }}>
       <div className="menu--title-icon-wrapper">
         <img className="menu--title-icon" src={Logo} alt="menu title icon" />
       </div>

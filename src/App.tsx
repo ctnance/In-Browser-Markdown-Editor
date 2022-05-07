@@ -4,12 +4,13 @@ import { useToggler } from "./hooks/index";
 
 const App: FC = () => {
   const [isMenuActive, toggleMenu] = useToggler(false);
+
   return (
     <>
-      {isMenuActive && <Menu toggleSelf={toggleMenu} />}
+      <Menu isActive={isMenuActive} toggleSelf={toggleMenu} />
       <div className={`page-content ${isMenuActive ? "menu-active" : ""}`}>
         <Header isMenuActive={isMenuActive} toggleMenu={toggleMenu} />
-        <Main />
+        <Main toggleMenu={toggleMenu} />
       </div>
     </>
   );

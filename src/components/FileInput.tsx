@@ -2,8 +2,11 @@ import { FC, useState, useEffect, useContext } from "react";
 import { MarkdownContext } from "../MarkdownContext";
 import IconDocument from "../assets/icon-document.svg";
 
+interface Props {
+  toggleMenu: () => void,
+}
 
-const FileInput: FC = () => {
+const FileInput: FC<Props> = ({ toggleMenu }) => {
   // TODO: Use the "active" note rather than the first note at index 0
   const [fileName, setFileName] = useState<string>("untitled.md");
   const { markdownNotes, activeNoteId, updateNoteName } = useContext(MarkdownContext);
@@ -19,7 +22,7 @@ const FileInput: FC = () => {
   }
 
   return (
-    <div className="file-input">
+    <div className="file-input" onClick={toggleMenu}>
       <img className="file-input--icon" src={IconDocument} alt="document icon" />
       <input className="file-input--input" type="text" value={fileName} onChange={handleChange} />
     </div>

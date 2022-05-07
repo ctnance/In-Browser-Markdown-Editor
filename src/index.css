@@ -81,8 +81,8 @@ img {
   justify-content: center;
   align-items: center;
   background-color: var(--color-weight-700);
-  width: 56px;
-  height: 56px;
+  min-width: 56px;
+  min-height: 56px;
 }
 
 .menu-btn--icon-container {
@@ -102,7 +102,12 @@ img {
 
 .delete-file-btn {
   background-color: transparent;
-  margin-right: 18px;
+  margin-right: 1rem;
+}
+
+.delete-file-btn--icon {
+  min-width: 18px;
+  min-height: 20px;
 }
 
 .save-file-btn,
@@ -113,8 +118,8 @@ img {
 
 .save-file-btn {
   border-radius: 4px;
-  width: 40px;
-  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
   margin: 8px;
   padding: 12px;
 }
@@ -276,7 +281,7 @@ img {
   display: flex;
   align-items: center;
   flex-grow: 1;
-  padding: 0 24px;
+  padding: 0 0.5em 0 1.5em;
 }
 
 .file-input--icon {
