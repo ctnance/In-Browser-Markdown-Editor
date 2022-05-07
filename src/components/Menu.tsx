@@ -18,7 +18,7 @@ const Menu: FC<Props> = ({ isActive, toggleSelf }) => {
   ))
 
   return (
-    <div className="menu" style={{ display: isActive ? "flex" : "none" }}>
+    <div className={`menu ${isActive ? "visible" : "hidden"}`}>
       <div className="menu--title-icon-wrapper">
         <img className="menu--title-icon" src={Logo} alt="menu title icon" />
       </div>

@@ -14,7 +14,11 @@ const MarkdownEditor: FC<Props> = ({ isMenuActive, toggleMenu }) => {
   const { isDarkTheme } = useContext(ThemeContext);
 
   useEffect(() => {
-    setText(markdownNotes[activeNoteId].content);
+    markdownNotes.map(note => {
+      if (note.id === activeNoteId) {
+        setText(note.content);
+      }
+    });
   }, [activeNoteId]);
 
   function handleChange(e: React.ChangeEvent<HTMLTextAreaElement>) {

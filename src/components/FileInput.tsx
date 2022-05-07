@@ -13,7 +13,11 @@ const FileInput: FC<Props> = ({ isMenuActive, toggleMenu }) => {
   const { markdownNotes, activeNoteId, updateNoteName } = useContext(MarkdownContext);
 
   useEffect(() => {
-    setFileName(markdownNotes[activeNoteId].name);
+    markdownNotes.map(note => {
+      if (note.id === activeNoteId) {
+        setFileName(note.name);
+      }
+    });
   }, [activeNoteId]);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {

@@ -1,4 +1,4 @@
-import { FC, createContext, useState } from "react";
+import { FC, createContext, useState, useEffect } from "react";
 import markdownData from "./data/data.json";
 import { getCurrentDate } from "./helpers/utils";
 
@@ -15,7 +15,8 @@ interface DefaultValues {
   updateActiveNoteId: (id: number) => void,
   createNewNote: (id: number) => void,
   updateNoteName: (name: string) => void,
-  updateNoteContent: (content: string) => void
+  updateNoteContent: (content: string) => void,
+  deleteNote: () => void,
 }
 
 const MarkdownContext = createContext({} as DefaultValues);
@@ -28,8 +29,14 @@ const MarkdownContextProvider: FC<Props> = ({ children }) => {
   const [markdownNotes, setMarkdownNotes] = useState(markdownData);
   const [activeNoteId, setActiveNoteId] = useState(0);
 
+  useEffect(() => {
+    if (markdownNotes.length <= 0) {
+      const newId = 0;
+      createNewNote(newId);
+    }
+  }, [markdownNotes]);
+
   function updateActiveNoteId(id: number) {
-    console.log("UPDATING ACTIVE NOTE ID TO: " + id)
     setActiveNoteId(id);
   }
 
@@ -70,8 +77,16 @@ const MarkdownContextProvider: FC<Props> = ({ children }) => {
     ));
   }
 
+  function deleteNote() {
+    setMarkdownNotes(prev => (
+      prev.filter(note => {
+        return note.id !== activeNoteId;
+      })
+    ));
+  }
+
   return (
-    <MarkdownContext.Provider value={{ markdownNotes, activeNoteId, updateActiveNoteId, createNewNote, updateNoteName, updateNoteContent }}>
+    <MarkdownContext.Provider value={{ markdownNotes, activeNoteId, updateActiveNoteId, createNewNote, updateNoteName, updateNoteContent, deleteNote }}>
       {children}
     </MarkdownContext.Provider>
   )

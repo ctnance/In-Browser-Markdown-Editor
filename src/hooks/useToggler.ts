@@ -4,7 +4,6 @@ function useToggler(defaultValue = false) {
   const [isActive, setIsActive] = useState(defaultValue);
 
   function toggle() {
-    console.log("TOGGLE!");
     setIsActive((prev) => !prev);
   }
 
