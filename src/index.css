@@ -4,6 +4,7 @@
   --color-weight-300: hsl(0, 0%, 89%);
   --color-weight-400: hsl(222, 9%, 78%);
   --color-weight-500: hsl(213, 4%, 51%);
+  --color-weight-500-transparent: hsla(213, 4%, 51%, 0.5);
   --color-weight-600: hsl(216, 8%, 38%);
   --color-weight-700: hsl(216, 9%, 23%);
   --color-weight-800: hsl(220, 7%, 18%);
@@ -185,13 +186,20 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-weight-1000-transparent);
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   z-index: 10;
+}
+
+.delete-note-modal--container.light {
+  background-color: var(--color-weight-1000-transparent);
+}
+
+.delete-note-modal--container.dark {
+  background-color: var(--color-weight-500-transparent);
 }
 
 .delete-note-modal {
@@ -202,15 +210,16 @@ img {
   padding: 24px;
 }
 
-.delete-note-modal.light {
+.light .delete-note-modal {
   background-color: var(--color-weight-100);
 }
 
-.delete-note-modal.dark {
+.dark .delete-note-modal {
   background-color: var(--color-weight-900);
 }
 
 .delete-note-modal--title {
+  line-height: 26.38px;
   margin: 0;
 }
 
