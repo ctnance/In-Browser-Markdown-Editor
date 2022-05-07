@@ -1,4 +1,4 @@
-import { FC, useState, useEffect, useContext } from "react";
+import { FC, useState, useEffect, useRef, useContext } from "react";
 import { MarkdownContext } from "../MarkdownContext";
 import IconDocument from "../assets/icon-document.svg";
 
@@ -9,8 +9,9 @@ interface Props {
 
 const FileInput: FC<Props> = ({ isMenuActive, toggleMenu }) => {
   // TODO: Use the "active" note rather than the first note at index 0
-  const [fileName, setFileName] = useState<string>("untitled.md");
+  const [fileName, setFileName] = useState<string>("");
   const { markdownNotes, activeNoteId, updateNoteName } = useContext(MarkdownContext);
+  const fileInput = useRef(null);
 
   useEffect(() => {
     markdownNotes.map(note => {
@@ -18,7 +19,7 @@ const FileInput: FC<Props> = ({ isMenuActive, toggleMenu }) => {
         setFileName(note.name);
       }
     });
-  }, [activeNoteId]);
+  }, [activeNoteId, fileInput]);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { value } = e.target;
@@ -29,7 +30,7 @@ const FileInput: FC<Props> = ({ isMenuActive, toggleMenu }) => {
   return (
     <div className="file-input" onClick={() => { isMenuActive && toggleMenu() }}>
       <img className="file-input--icon" src={IconDocument} alt="document icon" />
-      <input className="file-input--input" type="text" value={fileName} onChange={handleChange} />
+      <input ref={fileInput} className="file-input--input" type="text" value={fileName} onChange={handleChange} />
     </div>
   )
 }

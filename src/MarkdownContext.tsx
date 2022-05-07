@@ -27,7 +27,7 @@ interface Props {
 
 const MarkdownContextProvider: FC<Props> = ({ children }) => {
   const [markdownNotes, setMarkdownNotes] = useState(markdownData);
-  const [activeNoteId, setActiveNoteId] = useState(0);
+  const [activeNoteId, setActiveNoteId] = useState(markdownData[0].id | 0);
 
   useEffect(() => {
     if (markdownNotes.length <= 0) {

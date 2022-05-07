@@ -8,7 +8,7 @@ const App: FC = () => {
   return (
     <>
       <Menu isActive={isMenuActive} toggleSelf={toggleMenu} />
-      <div className={`page-content ${isMenuActive ? "menu-active" : ""}`}>
+      <div className={`page-content${isMenuActive ? " menu-active" : ""}`}>
         <Header isMenuActive={isMenuActive} toggleMenu={toggleMenu} />
         <Main isMenuActive={isMenuActive} toggleMenu={toggleMenu} />
       </div>

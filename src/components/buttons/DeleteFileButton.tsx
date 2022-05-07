@@ -1,13 +1,17 @@
-import { FC, useContext } from "react";
-import { MarkdownContext } from "../../MarkdownContext";
+import { FC } from "react";
+import DeleteNoteModal from "../DeleteNoteModal";
+import { useToggler } from "../../hooks";
 
 import IconDelete from "../../assets/icon-delete.svg";
 
 const DeleteFileButton: FC = () => {
-  const { deleteNote } = useContext(MarkdownContext);
+  const [isModalActive, toggle] = useToggler(false);
 
   return (
-    <button className="btn delete-file-btn" onClick={() => {/*TODO: deleteNote function here*/ }}><img className="delete-file-btn--icon" src={IconDelete} alt="button icon" /></button>
+    <>
+      {isModalActive && <DeleteNoteModal isActive={isModalActive} toggleSelf={toggle} />}
+      <button className="btn delete-file-btn" onClick={toggle}><img className="delete-file-btn--icon" src={IconDelete} alt="button icon" /></button>
+    </>
   )
 }
 

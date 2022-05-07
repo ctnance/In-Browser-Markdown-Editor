@@ -9,6 +9,7 @@
   --color-weight-800: hsl(220, 7%, 18%);
   --color-weight-900: hsl(216, 8%, 12%);
   --color-weight-1000: hsl(225, 9%, 9%);
+  --color-weight-1000-transparent: hsla(225, 9%, 9%, 0.5);
 
   --orange: hsl(13, 75%, 58%);
   --orange-hover: hsl(21, 86%, 67%);
@@ -113,23 +114,25 @@ img {
 }
 
 .save-file-btn,
-.new-document-btn {
+.new-document-btn,
+.delete-note-modal--btn {
   color: var(--color-weight-100);
+  border-radius: 4px;
   background-color: var(--orange);
+  padding: 12px;
 }
 
 .save-file-btn {
-  border-radius: 4px;
   width: 40px;
   height: 40px;
   min-width: 40px;
   min-height: 40px;
   margin: 8px;
-  padding: 12px;
 }
 
 .save-file-btn:hover,
-.new-document-btn:hover {
+.new-document-btn:hover,
+.delete-note-modal--btn:hover {
   background-color: var(--orange-hover);
 }
 
@@ -142,7 +145,6 @@ img {
   border-radius: 4px;
   font-size: 0.9375rem;
   width: 100%;
-  padding: 0.8em;
 }
 
 .preview-btn {
@@ -179,6 +181,60 @@ img {
   background-color: var(--color-weight-800);
 }
 
+.delete-note-modal--container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-weight-1000-transparent);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+}
+
+.delete-note-modal {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  width: 343px;
+  padding: 24px;
+}
+
+.delete-note-modal.light {
+  background-color: var(--color-weight-100);
+}
+
+.delete-note-modal.dark {
+  background-color: var(--color-weight-900);
+}
+
+.delete-note-modal--title {
+  margin: 0;
+}
+
+.light .delete-note-modal--title {
+  color: var(--color-weight-700);
+}
+
+.dark .delete-note-modal--title {
+  color: var(--color-weight-100);
+}
+
+.delete-note-modal--content {
+  line-height: 24px;
+  margin: 1rem 0;
+}
+
+.light .delete-note-modal--content {
+  color: var(--color-weight-500);
+}
+
+.dark .delete-note-modal--content {
+  color: var(--color-weight-400);
+}
+
 .menu {
   position: fixed;
   display: flex;
@@ -187,17 +243,6 @@ img {
   width: 250px;
   height: 100vh;
   padding: 30px 24px;
-}
-
-.menu.visible {
-  visibility: visible;
-  transition: transform 0.5s;
-}
-
-.menu.hidden {
-  /* visibility: hidden; */
-  /* transform: translateX(-250px); */
-  transition: visibility 0.5s;
 }
 
 .menu--document-text {
