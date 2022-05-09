@@ -103,12 +103,12 @@ const MarkdownContextProvider: FC<Props> = ({ children }) => {
   }
 
   function deleteActiveNote() {
+    setActiveNoteId(markdownNotes[1].id);
     setMarkdownNotes(prev => (
       prev.filter(note => {
         return note.id !== activeNoteId;
       })
     ));
-    setActiveNoteId(markdownNotes[0].id);
   }
 
   return (
