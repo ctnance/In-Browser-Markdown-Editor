@@ -408,25 +408,35 @@ img {
   overflow: hidden;
 }
 
+.markdown-editor,
+.preview-container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  margin: 0;
+  padding: 1rem;
+}
+
+.preview-container * {
+  margin: 0;
+}
+
 .markdown-editor {
   font-family: "Roboto Mono", "Courier New", Courier, monospace;
   font-size: 0.875rem;
   border: none;
   border-radius: 0;
   resize: none;
-  overflow: auto;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 1rem;
 }
 
-.markdown-editor.light {
+.markdown-editor.light,
+.preview-container.light {
   background-color: var(--color-weight-100);
   color: var(--color-weight-700);
 }
 
-.markdown-editor.dark {
+.markdown-editor.dark,
+.preview-container.dark {
   background-color: var(--color-weight-1000);
   color: var(--color-weight-400);
 }

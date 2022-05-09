@@ -1,5 +1,6 @@
 import { FC } from "react";
-import { PreviewBar, MarkdownEditor } from "./";
+import { useToggler } from "../hooks";
+import { PreviewBar, PreviewDisplay, MarkdownEditor } from "./";
 
 interface Props {
   isMenuActive: boolean,
@@ -7,10 +8,15 @@ interface Props {
 }
 
 const Main: FC<Props> = ({ isMenuActive, toggleMenu }) => {
+  const [isMarkdownActive, toggleMarkdown] = useToggler(true);
+
   return (
     <main className="main">
-      <PreviewBar />
-      <MarkdownEditor isMenuActive={isMenuActive} toggleMenu={toggleMenu} />
+      <PreviewBar isMarkdownActive={isMarkdownActive} toggleMarkdown={toggleMarkdown} />
+      {isMarkdownActive ?
+        <MarkdownEditor isMenuActive={isMenuActive} toggleMenu={toggleMenu} /> :
+        <PreviewDisplay />
+      }
     </main>
   );
 }

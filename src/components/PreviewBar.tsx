@@ -1,16 +1,18 @@
 import { FC, useContext } from "react";
-import { useToggler } from "../hooks";
 import { ThemeContext } from "../ThemeContext";
 import { PreviewButton } from "./buttons";
 
-const PreviewBar: FC = () => {
-  const [isMarkdownActive, toggle] = useToggler(true);
+interface Props {
+  isMarkdownActive: boolean,
+  toggleMarkdown: () => void
+}
+const PreviewBar: FC<Props> = ({ isMarkdownActive, toggleMarkdown }) => {
   const { isDarkTheme } = useContext(ThemeContext);
 
   return (
     <div className={`preview-bar ${isDarkTheme ? "dark" : "light"}`}>
       <p className="preview-bar--text">{isMarkdownActive ? "Markdown" : "Preview"}</p>
-      <PreviewButton previewActive={isMarkdownActive} togglePreview={toggle} />
+      <PreviewButton previewActive={isMarkdownActive} togglePreview={toggleMarkdown} />
     </div>
   )
 }
