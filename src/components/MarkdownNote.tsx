@@ -11,11 +11,12 @@ interface Props {
 }
 
 const MarkdownNote: FC<Props> = ({ id, creationDate, filename, toggleMenu }) => {
-  const { updateActiveNoteId } = useContext(MarkdownContext);
+  const { updateActiveNoteId, bumpNote } = useContext(MarkdownContext);
   const date = new Date(creationDate).toLocaleDateString("en-us", { day: "numeric", month: "short", year: "numeric" });
 
   function activateNote() {
     toggleMenu();
+    bumpNote(id);
     updateActiveNoteId(id);
   }
 

@@ -1,3 +1,4 @@
+import { NewReleasesTwoTone } from "@material-ui/icons";
 import { FC, createContext, useState, useEffect } from "react";
 import markdownData from "./data/data.json";
 import { getCurrentDate } from "./helpers/utils";
@@ -14,9 +15,10 @@ interface DefaultValues {
   activeNoteId: number,
   updateActiveNoteId: (id: number) => void,
   createNewNote: (id: number) => void,
+  bumpNote: (id: number) => void,
   updateNoteName: (name: string) => void,
   updateNoteContent: (content: string) => void,
-  deleteNote: () => void,
+  deleteActiveNote: () => void,
 }
 
 const MarkdownContext = createContext({} as DefaultValues);
@@ -66,6 +68,23 @@ const MarkdownContextProvider: FC<Props> = ({ children }) => {
     ));
   }
 
+  function bumpNote(id: number) {
+    // Loop through current notes and put the note
+    // with the given id at the top of the list
+    setMarkdownNotes(prevNotes => {
+      const newNotes = [];
+      for (let i = 0; i < prevNotes.length; i++) {
+        const prevNote = prevNotes[i];
+        if (prevNotes[i].id === id) {
+          newNotes.unshift(prevNote);
+        } else {
+          newNotes.push(prevNote);
+        }
+      }
+      return newNotes;
+    });
+  }
+
   function updateNoteContent(content: string) {
     setMarkdownNotes(prev => (
       prev.map(note => {
@@ -77,16 +96,17 @@ const MarkdownContextProvider: FC<Props> = ({ children }) => {
     ));
   }
 
-  function deleteNote() {
+  function deleteActiveNote() {
     setMarkdownNotes(prev => (
       prev.filter(note => {
         return note.id !== activeNoteId;
       })
     ));
+    setActiveNoteId(markdownNotes[0].id);
   }
 
   return (
-    <MarkdownContext.Provider value={{ markdownNotes, activeNoteId, updateActiveNoteId, createNewNote, updateNoteName, updateNoteContent, deleteNote }}>
+    <MarkdownContext.Provider value={{ markdownNotes, activeNoteId, updateActiveNoteId, createNewNote, bumpNote, updateNoteName, updateNoteContent, deleteActiveNote }}>
       {children}
     </MarkdownContext.Provider>
   )

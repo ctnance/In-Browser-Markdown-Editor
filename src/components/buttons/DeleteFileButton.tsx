@@ -9,7 +9,7 @@ const DeleteFileButton: FC = () => {
 
   return (
     <>
-      {isModalActive && <DeleteNoteModal isActive={isModalActive} toggleSelf={toggle} />}
+      {isModalActive && <DeleteNoteModal toggleSelf={toggle} />}
       <button className="btn delete-file-btn" onClick={toggle}><img className="delete-file-btn--icon" src={IconDelete} alt="button icon" /></button>
     </>
   )
