@@ -28,9 +28,9 @@ const FileInput: FC<Props> = ({ isMenuActive, toggleMenu }) => {
   }
 
   return (
-    <div className="file-input" onClick={() => { isMenuActive && toggleMenu() }}>
+    <div className="file-input">
       <img className="file-input--icon" src={IconDocument} alt="document icon" />
-      <input ref={fileInput} className="file-input--input" type="text" value={fileName} onChange={handleChange} />
+      <input ref={fileInput} className="file-input--input" type="text" value={fileName} onChange={handleChange} onClick={() => { isMenuActive && toggleMenu() }} />
     </div>
   )
 }
