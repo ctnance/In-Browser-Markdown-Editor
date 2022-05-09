@@ -14,8 +14,8 @@ const Menu: FC<Props> = ({ isActive, toggleSelf }) => {
   const { markdownNotes } = useContext(MarkdownContext);
   const menu = useRef<HTMLDivElement>(null);
 
-  const noteEntries = markdownNotes.map(note => (
-    <MarkdownNote key={note.id} id={note.id} creationDate={note.createdAt} filename={note.name} toggleMenu={toggleSelf} />
+  const noteEntries = markdownNotes.map((note, index) => (
+    <MarkdownNote key={index} id={note.id} creationDate={note.createdAt} filename={note.name} toggleMenu={toggleSelf} />
   ));
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const Menu: FC<Props> = ({ isActive, toggleSelf }) => {
         <img className="menu--title-icon" src={Logo} alt="menu title icon" />
       </div>
       <p className="menu--document-text">My Documents</p>
-      <NewDocumentButton />
+      <NewDocumentButton toggleMenu={toggleSelf} />
       <div className="menu--markdown-notes">
         {noteEntries}
       </div>

@@ -4,7 +4,7 @@ import { MarkdownContext } from "../MarkdownContext";
 import IconDocument from "../assets/icon-document.svg";
 
 interface Props {
-  id: number,
+  id: string,
   creationDate: string,
   filename: string,
   toggleMenu: () => void,

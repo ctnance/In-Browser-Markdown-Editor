@@ -1,10 +1,10 @@
-import { NewReleasesTwoTone } from "@material-ui/icons";
 import { FC, createContext, useState, useEffect } from "react";
 import markdownData from "./data/data.json";
 import { getCurrentDate } from "./helpers/utils";
+import { nanoid } from "nanoid";
 
 interface MarkdownObject {
-  id: number,
+  id: string,
   createdAt: string,
   name: string,
   content: string,
@@ -12,10 +12,10 @@ interface MarkdownObject {
 
 interface DefaultValues {
   markdownNotes: MarkdownObject[],
-  activeNoteId: number,
-  updateActiveNoteId: (id: number) => void,
-  createNewNote: (id: number) => void,
-  bumpNote: (id: number) => void,
+  activeNoteId: string,
+  updateActiveNoteId: (id: string) => void,
+  createNewNote: () => void,
+  bumpNote: (id: string) => void,
   updateNoteName: (name: string) => void,
   updateNoteContent: (content: string) => void,
   saveNotes: () => void,
@@ -30,29 +30,29 @@ interface Props {
 
 const MarkdownContextProvider: FC<Props> = ({ children }) => {
   const [markdownNotes, setMarkdownNotes] = useState(markdownData);
-  const [activeNoteId, setActiveNoteId] = useState(markdownData[0].id | 0);
+  const [activeNoteId, setActiveNoteId] = useState(markdownData[0].id || "");
 
   useEffect(() => {
     if (markdownNotes.length <= 0) {
-      const newId = 0;
-      createNewNote(newId);
+      createNewNote();
     }
   }, [markdownNotes]);
 
-  function updateActiveNoteId(id: number) {
+  function updateActiveNoteId(id: string) {
     setActiveNoteId(id);
   }
 
-  function createNewNote(id: number) {
+  function createNewNote() {
+    const id = nanoid();
     setMarkdownNotes(prev => (
       [
-        ...prev,
         {
           "id": id,
           "createdAt": getCurrentDate(),
           "name": "untitled-document.md",
           "content": ""
-        }
+        },
+        ...prev,
       ]
     ));
     setActiveNoteId(id);
@@ -69,14 +69,14 @@ const MarkdownContextProvider: FC<Props> = ({ children }) => {
     ));
   }
 
-  function bumpNote(id: number) {
+  function bumpNote(id: string) {
     // Loop through current notes and put the note
     // with the given id at the top of the list
     setMarkdownNotes(prevNotes => {
       const newNotes = [];
       for (let i = 0; i < prevNotes.length; i++) {
         const prevNote = prevNotes[i];
-        if (prevNotes[i].id === id) {
+        if (prevNote.id === id) {
           newNotes.unshift(prevNote);
         } else {
           newNotes.push(prevNote);
