@@ -14,7 +14,6 @@ const MarkdownEditor: FC<Props> = ({ isMenuActive, toggleMenu }) => {
   const { isDarkTheme } = useContext(ThemeContext);
 
   useEffect(() => {
-    console.log("NEW NOTE!");
     markdownNotes.map(note => {
       if (note.id === activeNoteId) {
         setText(note.content);

@@ -18,6 +18,7 @@ interface DefaultValues {
   bumpNote: (id: number) => void,
   updateNoteName: (name: string) => void,
   updateNoteContent: (content: string) => void,
+  saveNotes: () => void,
   deleteActiveNote: () => void,
 }
 
@@ -96,6 +97,11 @@ const MarkdownContextProvider: FC<Props> = ({ children }) => {
     ));
   }
 
+  function saveNotes() {
+    const jsonNotes = JSON.stringify(markdownNotes);
+    localStorage.setItem("notes", jsonNotes);
+  }
+
   function deleteActiveNote() {
     setMarkdownNotes(prev => (
       prev.filter(note => {
@@ -106,7 +112,7 @@ const MarkdownContextProvider: FC<Props> = ({ children }) => {
   }
 
   return (
-    <MarkdownContext.Provider value={{ markdownNotes, activeNoteId, updateActiveNoteId, createNewNote, bumpNote, updateNoteName, updateNoteContent, deleteActiveNote }}>
+    <MarkdownContext.Provider value={{ markdownNotes, activeNoteId, updateActiveNoteId, createNewNote, bumpNote, updateNoteName, updateNoteContent, saveNotes, deleteActiveNote }}>
       {children}
     </MarkdownContext.Provider>
   )
