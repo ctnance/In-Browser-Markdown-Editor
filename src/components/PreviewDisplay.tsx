@@ -4,7 +4,12 @@ import { MarkdownContext } from "../MarkdownContext";
 
 import Markdown from "markdown-to-jsx";
 
-const PreviewDisplay: FC = () => {
+interface Props {
+  isMenuActive: boolean,
+  toggleMenu: () => void,
+}
+
+const PreviewDisplay: FC<Props> = ({ isMenuActive, toggleMenu }) => {
   const [text, setText] = useState("");
   const { isDarkTheme } = useContext(ThemeContext);
   const { markdownNotes, activeNoteId } = useContext(MarkdownContext);
@@ -18,7 +23,7 @@ const PreviewDisplay: FC = () => {
   }, [activeNoteId])
 
   return (
-    <div className={`preview-container ${isDarkTheme ? "dark" : "light"}`}>
+    <div className={`preview-container ${isDarkTheme ? "dark" : "light"}`} onClick={() => { isMenuActive && toggleMenu() }}>
       <Markdown>
         {text}
       </Markdown>

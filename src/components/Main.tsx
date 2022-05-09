@@ -15,7 +15,7 @@ const Main: FC<Props> = ({ isMenuActive, toggleMenu }) => {
       <PreviewBar isMarkdownActive={isMarkdownActive} toggleMarkdown={toggleMarkdown} />
       {isMarkdownActive ?
         <MarkdownEditor isMenuActive={isMenuActive} toggleMenu={toggleMenu} /> :
-        <PreviewDisplay />
+        <PreviewDisplay isMenuActive={isMenuActive} toggleMenu={toggleMenu} />
       }
     </main>
   );

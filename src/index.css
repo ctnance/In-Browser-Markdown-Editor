@@ -417,6 +417,10 @@ img {
   padding: 1rem;
 }
 
+.preview-container {
+  padding: 16px 20px;
+}
+
 .preview-container * {
   margin: 0;
 }
@@ -439,4 +443,108 @@ img {
 .preview-container.dark {
   background-color: var(--color-weight-1000);
   color: var(--color-weight-400);
+}
+
+.preview-container a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.preview-container p {
+  line-height: 24px;
+  margin: 21px 0;
+}
+
+.preview-container ul,
+.preview-container ol {
+  margin: 20px 0;
+}
+
+.preview-container li {
+  font-size: 0.875rem;
+  line-height: 24px;
+}
+
+.preview-container blockquote {
+  border-radius: 4px;
+  border-left: 4px solid var(--orange);
+  font-weight: bold;
+  margin: 20px 0;
+  padding: 24px;
+}
+
+.preview-container blockquote * {
+  margin: 0;
+}
+
+.preview-container pre {
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 24px;
+}
+
+.preview-container.light h1,
+.preview-container.light h2,
+.preview-container.light h3,
+.preview-container.light h4,
+.preview-container.light h5 {
+  color: var(--color-weight-700);
+}
+
+.preview-container.dark h1,
+.preview-container.dark h2,
+.preview-container.dark h3,
+.preview-container.dark h4,
+.preview-container.dark h5 {
+  color: var(--color-weight-100);
+}
+
+.preview-container.light p {
+  color: var(--color-weight-500);
+}
+
+.preview-container.dark p {
+  color: var(--color-weight-400);
+}
+
+.preview-container.light li {
+  color: var(--color-weight-500);
+}
+
+.preview-container.dark li {
+  color: var(--color-weight-400);
+}
+
+.preview-container.light blockquote {
+  background-color: var(--color-weight-200);
+}
+
+.preview-container.dark blockquote {
+  color: var(--color-weight-100);
+  background-color: var(--color-weight-800);
+}
+
+.preview-container.light blockquote * {
+  color: var(--color-weight-700);
+}
+
+.preview-container.dark blockquote * {
+  color: var(--color-weight-100);
+}
+
+.preview-container.light code {
+  color: var(--color-weight-700);
+}
+
+.preview-container.dark code {
+  color: var(--color-weight-100);
+}
+
+.preview-container.light pre {
+  background-color: var(--color-weight-200);
+}
+
+.preview-container.dark pre {
+  background-color: var(--color-weight-800);
 }
