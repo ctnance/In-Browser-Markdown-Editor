@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
 import { useToggler } from "../hooks";
-import { PreviewBar, PreviewDisplay, MarkdownEditor } from "./";
+import { PreviewDisplay, MarkdownEditor } from "./";
 
 interface Props {
   isMenuActive: boolean,
@@ -9,14 +9,25 @@ interface Props {
 
 const Main: FC<Props> = ({ isMenuActive, toggleMenu }) => {
   const [isMarkdownActive, toggleMarkdown] = useToggler(true);
+  // matches -> true = media query: screen matches tablet size--show both markdown and preview if markdown active; false = vice versa
+  const [matches, setMatches] = useState(
+    window.matchMedia("(min-width: 768px)").matches
+  );
+
+  useEffect(() => {
+    window
+      .matchMedia("(min-width: 768px)")
+      .addEventListener('change', e => setMatches(e.matches));
+  }, []);
+
+  const markdownEditor = <MarkdownEditor previewIsActive={matches} toggleMarkdown={toggleMarkdown} isMenuActive={isMenuActive} toggleMenu={toggleMenu} />;
+  const previewDisplay = <PreviewDisplay isMarkdownActive={isMarkdownActive} toggleMarkdown={toggleMarkdown} isMenuActive={isMenuActive} toggleMenu={toggleMenu} />;
 
   return (
     <main className="main">
-      <PreviewBar isMarkdownActive={isMarkdownActive} toggleMarkdown={toggleMarkdown} />
-      {isMarkdownActive ?
-        <MarkdownEditor isMenuActive={isMenuActive} toggleMenu={toggleMenu} /> :
-        <PreviewDisplay isMenuActive={isMenuActive} toggleMenu={toggleMenu} />
-      }
+      {matches ? <div className="markdown-grid">{isMarkdownActive && markdownEditor}{previewDisplay}</div> : isMarkdownActive ?
+        markdownEditor :
+        previewDisplay}
     </main>
   );
 }

@@ -403,13 +403,47 @@ img {
   letter-spacing: 2px;
 }
 
+.preview-container.dark {
+  background-color: var(--color-weight-1000);
+}
+
+.preview-container.light {
+  background-color: var(--color-weight-100);
+}
+
+.preview-container--content-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.markdown-grid {
+  display: flex;
+  justify-content: center;
+}
+
+.markdown-grid .markdown-editor-container.dark {
+  border-right: 1px solid var(--color-weight-600);
+}
+
+.markdown-grid .markdown-editor-container.light {
+  border-right: 1px solid var(--color-weight-300);
+}
+
 .markdown-editor-container {
   flex-grow: 1;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 2.25em;
+}
+
+.preview-container {
+  width: 100%;
+  height: 100%;
 }
 
 .markdown-editor,
-.preview-container {
+.preview-container--content {
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -417,11 +451,12 @@ img {
   padding: 1rem;
 }
 
-.preview-container {
+.preview-container--content {
+  max-width: 672px;
   padding: 16px 20px;
 }
 
-.preview-container * {
+.preview-container--content * {
   margin: 0;
 }
 
@@ -431,41 +466,42 @@ img {
   border: none;
   border-radius: 0;
   resize: none;
+  outline: none;
 }
 
 .markdown-editor.light,
-.preview-container.light {
+.preview-container--content.light {
   background-color: var(--color-weight-100);
   color: var(--color-weight-700);
 }
 
 .markdown-editor.dark,
-.preview-container.dark {
+.preview-container--content.dark {
   background-color: var(--color-weight-1000);
   color: var(--color-weight-400);
 }
 
-.preview-container a {
+.preview-container--content a {
   color: inherit;
   text-decoration: underline;
 }
 
-.preview-container p {
+.preview-container--content p {
   line-height: 24px;
   margin: 21px 0;
 }
 
-.preview-container ul,
-.preview-container ol {
+.preview-container--content ul,
+.preview-container--content ol {
   margin: 20px 0;
 }
 
-.preview-container li {
+.preview-container--content li {
   font-size: 0.875rem;
   line-height: 24px;
 }
 
-.preview-container blockquote {
+.preview-container--content blockquote {
   border-radius: 4px;
   border-left: 4px solid var(--orange);
   font-weight: bold;
@@ -473,11 +509,11 @@ img {
   padding: 24px;
 }
 
-.preview-container blockquote * {
+.preview-container--content blockquote * {
   margin: 0;
 }
 
-.preview-container pre {
+.preview-container--content pre {
   border-radius: 4px;
   white-space: pre-wrap;
   font-size: 14px;
@@ -486,67 +522,67 @@ img {
   padding: 24px;
 }
 
-.preview-container.light h1,
-.preview-container.light h2,
-.preview-container.light h3,
-.preview-container.light h4,
-.preview-container.light h5 {
+.preview-container--content.light h1,
+.preview-container--content.light h2,
+.preview-container--content.light h3,
+.preview-container--content.light h4,
+.preview-container--content.light h5 {
   color: var(--color-weight-700);
 }
 
-.preview-container.dark h1,
-.preview-container.dark h2,
-.preview-container.dark h3,
-.preview-container.dark h4,
-.preview-container.dark h5 {
+.preview-container--content.dark h1,
+.preview-container--content.dark h2,
+.preview-container--content.dark h3,
+.preview-container--content.dark h4,
+.preview-container--content.dark h5 {
   color: var(--color-weight-100);
 }
 
-.preview-container.light p {
+.preview-container--content.light p {
   color: var(--color-weight-500);
 }
 
-.preview-container.dark p {
+.preview-container--content.dark p {
   color: var(--color-weight-400);
 }
 
-.preview-container.light li {
+.preview-container--content.light li {
   color: var(--color-weight-500);
 }
 
-.preview-container.dark li {
+.preview-container--content.dark li {
   color: var(--color-weight-400);
 }
 
-.preview-container.light blockquote {
+.preview-container--content.light blockquote {
   background-color: var(--color-weight-200);
 }
 
-.preview-container.dark blockquote {
+.preview-container--content.dark blockquote {
   color: var(--color-weight-100);
   background-color: var(--color-weight-800);
 }
 
-.preview-container.light blockquote * {
+.preview-container--content.light blockquote * {
   color: var(--color-weight-700);
 }
 
-.preview-container.dark blockquote * {
+.preview-container--content.dark blockquote * {
   color: var(--color-weight-100);
 }
 
-.preview-container.light code {
+.preview-container--content.light code {
   color: var(--color-weight-700);
 }
 
-.preview-container.dark code {
+.preview-container--content.dark code {
   color: var(--color-weight-100);
 }
 
-.preview-container.light pre {
+.preview-container--content.light pre {
   background-color: var(--color-weight-200);
 }
 
-.preview-container.dark pre {
+.preview-container--content.dark pre {
   background-color: var(--color-weight-800);
 }
