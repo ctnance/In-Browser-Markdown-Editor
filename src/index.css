@@ -419,6 +419,7 @@ img {
 .markdown-grid {
   display: flex;
   justify-content: center;
+  height: 100%;
 }
 
 .markdown-grid .markdown-editor-container.dark {
@@ -434,7 +435,8 @@ img {
   overflow: hidden;
   width: 100%;
   height: 100%;
-  padding-bottom: 2.25em;
+  /* TODO: Temporary fix for issue where textarea is cutoff. Padding works for now. */
+  padding-bottom: 2.2 5em;
 }
 
 .preview-container {
